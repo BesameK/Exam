@@ -1,0 +1,10 @@
+{% extends "Ecommerce/home.html" %}
+
+{% block body %}
+ <form action="" method="POST">
+    {% csrf_token %}
+     {{ form1 }}
+     {{ form2 }}
+    <input type="submit" name="Submit" value="Add a Order">
+ </form>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "Ecommerce/home.html" %}
+
+
+{% block body %}
+
+
+
+    {% for ticket in tickets %}
+         <ul class="collection">
+    <li class="collection-item avatar">
+      <span class="title">Name: {{ ticket.name }}</span>
+      <p>Start Time: {{ticket.start_time }}  End Time: {{ticket.end_time }}<br>
+         Ticket price: {{ ticket.price }}
+      </p>
+
+
+    </li>
+  </ul>
+    {% endfor %}
+{#    <a href="{% url 'createCar' %}" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>#}
+<ul>
+    {% if tickets.has_previous %}
+        <a href="{% url 'tickets' %}?page={{ tickets.previous_page_number }}" class="waves-effect waves-light btn-large">
+            <i class="material-icons left">navigate_before</i>Pervous Page</a>
+    {% endif %}
+    {% if tickets.has_next %}
+        <a href="{% url 'tickets' %}?page={{ tickets.next_page_number }}" class="waves-effect waves-light btn-large">
+            <i class="material-icons left">navigate_next</i>Next Page</a>
+
+    {% endif %}
+</ul>
+
+{% endblock %}
